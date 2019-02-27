@@ -1,31 +1,9 @@
-\documentclass[a4paper,
-               %boxit,
-               %titlepage,   % separate title page
-               %refpage      % separate references
-              ]{jacow}
-%
-% CHANGE SEQUENCE OF GRAPHICS EXTENSION TO BE EMBEDDED
-% ----------------------------------------------------
-% test for XeTeX where the sequence is by default eps-> pdf, jpg, png, pdf, ...
-%    and the JACoW template provides JACpic2v3.eps and JACpic2v3.jpg which
-%    might generates errors, therefore PNG and JPG first
-%
-\makeatletter%
-	\ifboolexpr{bool{xetex}}
-	 {\renewcommand{\Gin@extensions}{.pdf,%
-	                    .png,.jpg,.bmp,.pict,.tif,.psd,.mac,.sga,.tga,.gif,%
-	                    .eps,.ps,%
-	                    }}{}
-\makeatother
+\documentclass{ws-ijmpa}
+\usepackage[super,compress]{cite}
+\usepackage{graphicx}
 
-% CHECK FOR XeTeX/LuaTeX BEFORE DEFINING AN INPUT ENCODING
-% --------------------------------------------------------
-%   utf8  is default for XeTeX/LuaTeX 
-%   utf8  in LaTeX only realises a small portion of codes
-%
-\ifboolexpr{bool{xetex} or bool{luatex}} % test for XeTeX/LuaTeX
- {}                                      % input encoding is utf8 by default
- {\usepackage[utf8]{inputenc}}           % switch to utf8
+
+
 
 \usepackage[USenglish]{babel}			 
 
@@ -33,43 +11,20 @@
 \usepackage{multirow}
 \usepackage{ragged2e}
 
-%
-% if BibLaTeX is used
-%
-\ifboolexpr{bool{jacowbiblatex}}%
- {%
-  \addbibresource{jacow-test.bib}
-  \addbibresource{biblatex-examples.bib}
- }{}
-\listfiles
 
-%
+
 % command for typesetting a \section like word
-%
 \newcommand\SEC[1]{\textbf{\uppercase{#1}}}
 
-%%
-%%   Lengths for the spaces in the title
-%%   \setlength\titleblockstartskip{..}  %before title, default 3pt
-%%   \setlength\titleblockmiddleskip{..} %between title + author, default 1em
-%%   \setlength\titleblockendskip{..}    %afterauthor, default 1em
-
-%\copyrightspace %default 1cm. arbitrary size with e.g. \copyrightspace[2cm]
-
-% testing to fill the copyright space
-%\usepackage{eso-pic}
-%\AddToShipoutPictureFG*{\AtTextLowerLeft{\textcolor{red}{COPYRIGHTSPACE}}}
-
-%\usepackage{todonotes}
 
 \begin{document}
 
-\title{SixTrack project: status, runtime environment, and new developments\thanks{Research supported by the HL-LHC project}}
+\title{SixTrack project: status, runtime environment, and new developments\footnote{Research supported by the HL-LHC project}}
 
 \title{SixTrack 5 and runtime environment\thanks{Research supported by the HL-LHC project}}
 
 \author{
-R.~De Maria \thanks{riccardo.de.maria@cern.ch},
+R.~De Maria \footnote{riccardo.de.maria@cern.ch},
 J.~Andersson,
 V.K.~Berglyd Olsen,
 L.~Field,
